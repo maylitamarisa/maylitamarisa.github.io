@@ -3,20 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Maylita Maris Anggraeni — Customer Service & Support Professional</title>
+  <title>Maylita Maris Anggraeni — Support Professional</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --bg: #000; --card: #1a1a1a; --text: #fff; --muted: #666; --border: #222; }
     html { scroll-behavior: smooth; }
-    body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.7; }
-
-    /* CONTAINER */
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      width: 100%;
-    }
+    body { background: #000; color: #fff; font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.7; }
 
     /* NAV */
     nav {
@@ -25,156 +17,97 @@
       padding: 24px 60px;
       background: rgba(0,0,0,0.88); backdrop-filter: blur(12px);
     }
-    nav .logo { font-size: 11px; font-weight: 500; letter-spacing: 0.25em; text-transform: uppercase; color: var(--muted); }
+    nav .logo { font-size: 11px; font-weight: 500; letter-spacing: 0.25em; text-transform: uppercase; color: #555; }
     nav ul { display: flex; gap: 36px; list-style: none; }
-    nav ul a { text-decoration: none; color: var(--muted); font-size: 11px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; transition: color 0.3s; }
+    nav ul a { text-decoration: none; color: #555; font-size: 11px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; transition: color 0.3s; }
     nav ul a:hover { color: #fff; }
+
+    /* WRAP */
+    .wrap { max-width: 760px; margin: 0 auto; padding: 0 40px; }
 
     /* HERO */
     #hero {
       min-height: 100vh; display: flex; flex-direction: column;
       justify-content: center; align-items: center; text-align: center;
-      padding: 140px 60px 80px; position: relative;
+      padding: 140px 40px 80px; position: relative;
     }
     #hero::after {
       content: ''; position: absolute; bottom: 0; left: 50%;
       transform: translateX(-50%); width: 1px; height: 60px;
-      background: linear-gradient(to bottom, #555, transparent);
+      background: linear-gradient(to bottom, #444, transparent);
     }
-    #hero .label {
-      font-size: 11px; font-weight: 500; letter-spacing: 0.3em;
-      text-transform: uppercase; color: var(--muted); margin-bottom: 32px;
-      opacity: 0; animation: fadeUp 0.8s ease 0.2s forwards;
-    }
-    #hero h1 {
-      font-size: clamp(3rem, 8vw, 9rem); font-weight: 800;
-      line-height: 0.95; letter-spacing: -0.03em;
-      opacity: 0; animation: fadeUp 0.9s ease 0.4s forwards;
-    }
+    #hero .label { font-size: 11px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: #555; margin-bottom: 32px; opacity: 0; animation: fadeUp 0.8s ease 0.2s forwards; }
+    #hero h1 { font-size: clamp(3rem, 8vw, 9rem); font-weight: 800; line-height: 0.95; letter-spacing: -0.03em; opacity: 0; animation: fadeUp 0.9s ease 0.4s forwards; }
     #hero h1 .line1 { display: block; color: #fff; }
-    #hero h1 .line2 {
-      display: block;
-      background: linear-gradient(180deg, #aaa 0%, #333 100%);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-    }
-    #hero p.tagline {
-      font-size: 1rem; font-weight: 400; color: var(--muted);
-      margin-top: 28px; letter-spacing: 0.02em;
-      opacity: 0; animation: fadeUp 0.9s ease 0.6s forwards;
-    }
+    #hero h1 .line2 { display: block; background: linear-gradient(180deg, #aaa 0%, #333 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    #hero p.tagline { font-size: 1rem; font-weight: 400; color: #555; margin-top: 28px; opacity: 0; animation: fadeUp 0.9s ease 0.6s forwards; }
+
     @keyframes fadeUp { from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }
 
     /* SCROLL ANIMATION */
-    .reveal {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
 
     /* SECTIONS */
-    section { padding: 100px 60px; border-top: 1px solid var(--border); }
-    section > *:not(.section-label) { max-width: 900px; margin-left: auto; margin-right: auto; }
-    .section-label { max-width: 900px; margin-left: auto; margin-right: auto; font-size: 10px; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--muted); margin-bottom: 48px; }
+    section { padding: 120px 0; }
+
+    .section-label { font-size: 10px; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: #555; margin-bottom: 48px; }
 
     /* ABOUT */
-    #about .about-text { font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 800; line-height: 1.2; letter-spacing: -0.02em; max-width: 900px; }
-    #about .about-text .highlight { color: #fff; }
-    #about .about-text .muted { color: #555; }
+    .about-text { font-size: clamp(1.6rem, 3.5vw, 2.6rem); font-weight: 800; line-height: 1.2; letter-spacing: -0.02em; }
+    .about-text .highlight { color: #fff; }
+    .about-text .muted { color: #555; }
 
     /* EXPERIENCE */
-    #experience .exp-card {
-      background: var(--card);
-      border-radius: 20px;
-      padding: 48px;
-      display: grid;
-      grid-template-columns: 160px 1fr;
-      gap: 40px;
-      align-items: start;
-      margin-bottom: 16px;
+    .exp-card {
+      background: #111; border-radius: 20px; padding: 40px;
+      display: grid; grid-template-columns: 120px 1fr;
+      gap: 32px; align-items: start; margin-bottom: 16px;
     }
-    #experience .exp-card:last-child { margin-bottom: 0; }
-    #experience .exp-years { font-size: clamp(4rem, 7vw, 6rem); font-weight: 800; line-height: 1; letter-spacing: -0.04em; background: linear-gradient(180deg, #aaa 0%, #333 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-    #experience .exp-years span { display: block; font-size: 11px; font-weight: 600; color: var(--muted); letter-spacing: 0.2em; text-transform: uppercase; margin-top: 8px; -webkit-text-fill-color: var(--muted); }
-    #experience .exp-date { font-size: 13px; color: var(--muted); margin-bottom: 10px; font-weight: 400; }
-    #experience h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 12px; }
-    #experience p { color: #888; font-size: 0.9rem; font-weight: 300; line-height: 1.8; }
+    .exp-card:last-child { margin-bottom: 0; }
+    .exp-years { font-size: clamp(3rem, 6vw, 5rem); font-weight: 800; line-height: 1; letter-spacing: -0.04em; background: linear-gradient(180deg, #aaa 0%, #444 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .exp-years span { display: block; font-size: 10px; font-weight: 600; color: #555; letter-spacing: 0.2em; text-transform: uppercase; margin-top: 6px; -webkit-text-fill-color: #555; }
+    .exp-date { font-size: 12px; color: #555; margin-bottom: 8px; }
+    .exp-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 10px; }
+    .exp-card p { color: #777; font-size: 0.88rem; font-weight: 300; line-height: 1.8; }
 
-    @media (max-width: 600px) {
-      #experience .exp-card { grid-template-columns: 1fr; gap: 20px; }
-    }
-
-    /* WHAT I DO — card grid */
-    #services .card-wrap {
-      background: var(--card);
-      border-radius: 20px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-    }
-    .service-item {
-      padding: 40px;
-      border-right: 1px solid #252525;
-      border-bottom: 1px solid #252525;
-    }
+    /* WHAT I DO */
+    .card-wrap { background: #111; border-radius: 20px; display: grid; grid-template-columns: 1fr 1fr; }
+    .service-item { padding: 36px; border-right: 1px solid #1e1e1e; border-bottom: 1px solid #1e1e1e; transition: background 0.3s ease; }
+    .service-item:hover { background: #191919; }
     .service-item:nth-child(2) { border-right: none; }
     .service-item:nth-child(3) { border-bottom: none; }
     .service-item:nth-child(4) { border-right: none; border-bottom: none; }
-    .service-item { transition: background 0.3s ease; }
-    .service-item:hover { background: #252525; }
-    .service-item .num { font-size: 10px; font-weight: 500; color: var(--muted); letter-spacing: 0.15em; margin-bottom: 20px; }
-    .service-item h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 12px; }
-    .service-item p { color: #888; font-size: 0.85rem; font-weight: 300; line-height: 1.8; }
+    .service-item .num { font-size: 10px; color: #555; letter-spacing: 0.15em; margin-bottom: 16px; }
+    .service-item h3 { font-size: 1rem; font-weight: 700; margin-bottom: 10px; }
+    .service-item p { color: #777; font-size: 0.85rem; line-height: 1.8; }
 
-    /* HOW I WORK — vertical list */
-    #how .how-item {
-      display: grid;
-      grid-template-columns: 60px 1fr;
-      gap: 24px;
-      align-items: start;
-      padding: 32px 0;
-      border-top: 1px solid var(--border);
-    }
-    #how .how-item { transition: transform 0.3s ease; }
-    #how .how-item:hover { transform: translateY(-4px); }
-    #how .how-item:last-child { border-bottom: 1px solid var(--border); }
-    #how .how-item .num { font-size: 11px; font-weight: 500; color: var(--muted); padding-top: 4px; }
-    #how .how-item .content h3 { font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
-    #how .how-item .content p { color: #888; font-size: 0.85rem; font-weight: 300; line-height: 1.8; }
+    /* HOW I WORK */
+    .how-item { display: grid; grid-template-columns: 50px 1fr; gap: 20px; padding: 28px 0; border-top: 1px solid #1a1a1a; transition: transform 0.3s ease; }
+    .how-item:last-child { border-bottom: 1px solid #1a1a1a; }
+    .how-item:hover { transform: translateY(-4px); }
+    .how-item .num { font-size: 11px; color: #555; padding-top: 4px; }
+    .how-item h3 { font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
+    .how-item p { color: #777; font-size: 0.85rem; line-height: 1.8; }
 
     /* QUOTE */
-  #quote {
-      border-top: 1px solid var(--border);
-      display: flex; flex-direction: column; align-items: center;
-      text-align: center; padding: 120px 60px;
-    }
-    #quote .big-quote { font-size: 3rem; color: #555; line-height: 1; margin-bottom: 32px; font-family: Georgia, serif; font-style: italic; }
-    #quote blockquote {
-      font-size: clamp(1.2rem, 2.2vw, 1.7rem); font-weight: 500;
-      max-width: 700px; line-height: 1.5; color: #e0e0e0; margin-bottom: 24px;
-      font-style: normal; letter-spacing: -0.01em;
-    }
-    #quote cite { font-size: 13px; font-weight: 300; color: #888; letter-spacing: 0.05em; font-style: normal; }
+    .quote-wrap { padding: 120px 0; text-align: center; }
+    .big-quote { font-size: 3rem; color: #333; font-family: Georgia, serif; font-style: italic; margin-bottom: 32px; }
+    blockquote { font-size: clamp(1.2rem, 2.2vw, 1.7rem); font-weight: 500; max-width: 680px; margin: 0 auto 24px; line-height: 1.5; color: #ddd; }
+    cite { font-size: 12px; color: #555; font-style: normal; font-weight: 300; }
 
     /* FOOTER */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 40px 60px;
-      display: flex; justify-content: center; align-items: center;
-    }
-    footer p { font-size: 11px; font-weight: 600; color: var(--muted); letter-spacing: 0.25em; text-transform: uppercase; }
+    footer { border-top: 1px solid #1a1a1a; padding: 32px 40px; text-align: center; }
+    footer p { font-size: 11px; font-weight: 600; color: #555; letter-spacing: 0.25em; text-transform: uppercase; }
 
-    /* RESPONSIVE */
     @media (max-width: 768px) {
       nav { padding: 20px 24px; }
       nav ul { gap: 16px; }
-      #hero, section, #quote, footer { padding-left: 24px; padding-right: 24px; }
-      #about .about-grid { grid-template-columns: 1fr; gap: 24px; }
-      #services .card-wrap { grid-template-columns: 1fr; }
+      .wrap { padding: 0 24px; }
+      .card-wrap { grid-template-columns: 1fr; }
       .service-item { border-right: none !important; }
       .service-item:last-child { border-bottom: none; }
+      .exp-card { grid-template-columns: 1fr; gap: 16px; }
     }
   </style>
 </head>
@@ -191,7 +124,6 @@
   </nav>
 
   <section id="hero">
-
     <h1>
       <span class="line1">Maylita Maris</span>
       <span class="line2">Anggraeni</span>
@@ -199,101 +131,103 @@
     <p class="tagline">Support Professional</p>
   </section>
 
-  <section id="about">
-    <p class="section-label">About</p>
-    <div class="about-text reveal">
-      <span class="highlight">I hold a degree in Psychology, which shapes how I approach every interaction.</span>
-      <span class="muted"> With 8+ years of hands-on experience supporting international clients, I bring clarity, empathy, and efficiency to every customer touchpoint. For me, good service is not just about solving problems. It is about making people feel understood.</span>
-    </div>
-  </section>
+  <div class="wrap">
 
-  <section id="experience">
-    <p class="section-label">Experience</p>
-    <div class="exp-card reveal">
-      <div>
-        <div class="exp-years">3+<span>Years</span></div>
+    <section id="about">
+      <p class="section-label">About</p>
+      <div class="about-text reveal">
+        <span class="highlight">I hold a degree in Psychology, which shapes how I approach every interaction.</span>
+        <span class="muted"> With 8+ years of hands-on experience supporting international clients, I bring clarity, empathy, and efficiency to every customer touchpoint. For me, good service is not just about solving problems. It is about making people feel understood.</span>
       </div>
-      <div>
-        <div class="exp-date">2018 — 2021</div>
-        <h3>Psychology Graduate & Early Career</h3>
-        <p>Completed a degree in Psychology, building a strong foundation in human behavior, communication, and emotional intelligence. Worked as a Staff Finance, handling financial records, budgeting, and day-to-day administrative reporting. Also spent time in the oil industry, gaining exposure to how large-scale operations run on the ground.</p>
-      </div>
-    </div>
-    <div class="exp-card reveal">
-      <div>
-        <div class="exp-years">4+<span>Years</span></div>
-      </div>
-      <div>
-        <div class="exp-date">2022 — Present</div>
-        <h3>Customer Service & Support Professional</h3>
-        <p>Dedicated career in customer service and support, working with international companies across diverse industries. Consistently delivering high-quality client experiences through empathy, efficiency, and clear communication.</p>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="services">
-    <p class="section-label">What I Do</p>
-    <div class="card-wrap">
-      <div class="service-item reveal">
+    <section id="experience">
+      <p class="section-label">Experience</p>
+      <div class="exp-card reveal">
+        <div>
+          <div class="exp-years">3+<span>Years</span></div>
+        </div>
+        <div>
+          <div class="exp-date">2018 — 2021</div>
+          <h3>Psychology Graduate & Early Career</h3>
+          <p>Completed a degree in Psychology, building a strong foundation in human behavior, communication, and emotional intelligence. Worked as a Staff Finance, handling financial records, budgeting, and day-to-day administrative reporting. Also spent time in the oil industry, gaining exposure to how large-scale operations run on the ground.</p>
+        </div>
+      </div>
+      <div class="exp-card reveal">
+        <div>
+          <div class="exp-years">4+<span>Years</span></div>
+        </div>
+        <div>
+          <div class="exp-date">2022 — Present</div>
+          <h3>Customer Service & Support Professional</h3>
+          <p>Dedicated career in customer service and support, working with international companies across diverse industries. Consistently delivering high-quality client experiences through empathy, efficiency, and clear communication.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <p class="section-label">What I Do</p>
+      <div class="card-wrap reveal">
+        <div class="service-item">
+          <div class="num">01</div>
+          <h3>Customer Service</h3>
+          <p>Providing responsive, human-centered support that turns inquiries into lasting trust.</p>
+        </div>
+        <div class="service-item">
+          <div class="num">02</div>
+          <h3>Client Relations</h3>
+          <p>Building and nurturing relationships with international clients across different cultures and time zones.</p>
+        </div>
+        <div class="service-item">
+          <div class="num">03</div>
+          <h3>Technical Support</h3>
+          <p>Translating complex issues into clear solutions, ensuring smooth resolution every time.</p>
+        </div>
+        <div class="service-item">
+          <div class="num">04</div>
+          <h3>Process Optimization</h3>
+          <p>Streamlining workflows and support systems for faster response times and better outcomes.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="how">
+      <p class="section-label">How I Work</p>
+      <div class="how-item reveal">
         <div class="num">01</div>
-        <h3>Customer Service</h3>
-        <p>Providing responsive, human-centered support that turns inquiries into lasting trust.</p>
+        <div>
+          <h3>Empathy First</h3>
+          <p>Every customer has a story. I listen before I solve.</p>
+        </div>
       </div>
-      <div class="service-item reveal">
+      <div class="how-item reveal">
         <div class="num">02</div>
-        <h3>Client Relations</h3>
-        <p>Building and nurturing relationships with international clients across different cultures and time zones.</p>
+        <div>
+          <h3>Clear Communication</h3>
+          <p>No jargon, no confusion. Just honest, helpful answers.</p>
+        </div>
       </div>
-      <div class="service-item reveal">
+      <div class="how-item reveal">
         <div class="num">03</div>
-        <h3>Technical Support</h3>
-        <p>Translating complex issues into clear solutions, ensuring smooth resolution every time.</p>
+        <div>
+          <h3>Detail-Oriented</h3>
+          <p>The small things matter. I follow through on every detail.</p>
+        </div>
       </div>
-      <div class="service-item reveal">
+      <div class="how-item reveal">
         <div class="num">04</div>
-        <h3>Process Optimization</h3>
-        <p>Streamlining workflows and support systems for faster response times and better outcomes.</p>
+        <div>
+          <h3>Always Improving</h3>
+          <p>I learn from every interaction to deliver better service tomorrow.</p>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="how">
-    <p class="section-label">How I Work</p>
-    <div class="how-item reveal">
-      <div class="num">01</div>
-      <div class="content">
-        <h3>Empathy First</h3>
-        <p>Every customer has a story. I listen before I solve.</p>
-      </div>
-    </div>
-    <div class="how-item reveal">
-      <div class="num">02</div>
-      <div class="content">
-        <h3>Clear Communication</h3>
-        <p>No jargon, no confusion. Just honest, helpful answers.</p>
-      </div>
-    </div>
-    <div class="how-item reveal">
-      <div class="num">03</div>
-      <div class="content">
-        <h3>Detail-Oriented</h3>
-        <p>The small things matter. I follow through on every detail.</p>
-      </div>
-    </div>
-    <div class="how-item reveal">
-      <div class="num">04</div>
-      <div class="content">
-        <h3>Always Improving</h3>
-        <p>I learn from every interaction to deliver better service tomorrow.</p>
-      </div>
-    </div>
-  </section>
+  </div>
 
-  <div id="quote">
+  <div class="quote-wrap">
     <div class="big-quote">"</div>
-    <blockquote>
-      Great service is not about having all the answers — it is about making people feel heard.
-    </blockquote>
+    <blockquote>Great service is not about having all the answers — it is about making people feel heard.</blockquote>
     <cite>Maylita Maris Anggraeni</cite>
   </div>
 
@@ -304,13 +238,11 @@
   <script>
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((e, i) => {
-        if (e.isIntersecting) {
-          setTimeout(() => e.target.classList.add('visible'), i * 80);
-        }
+        if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 80);
       });
     }, { threshold: 0.1 });
-
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   </script>
+
 </body>
 </html>
