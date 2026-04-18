@@ -86,14 +86,26 @@
     #about .about-text .muted { color: #555; }
 
     /* EXPERIENCE */
-    #experience .exp-row {
-      display: flex; justify-content: space-between; align-items: flex-start;
-      padding: 32px 0; border-top: 1px solid var(--border);
+    #experience .exp-card {
+      background: var(--card);
+      border-radius: 20px;
+      padding: 48px;
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 40px;
+      align-items: start;
+      margin-bottom: 16px;
     }
-    #experience .exp-row:last-child { border-bottom: 1px solid var(--border); }
-    #experience h3 { font-size: 1rem; font-weight: 600; margin-bottom: 10px; }
-    #experience .date { font-size: 11px; font-weight: 400; color: var(--muted); white-space: nowrap; margin-left: 40px; margin-top: 4px; }
-    #experience p { color: #888; font-size: 0.88rem; font-weight: 300; max-width: 580px; line-height: 1.8; }
+    #experience .exp-card:last-child { margin-bottom: 0; }
+    #experience .exp-years { font-size: clamp(4rem, 7vw, 6rem); font-weight: 800; line-height: 1; letter-spacing: -0.04em; background: linear-gradient(180deg, #aaa 0%, #333 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    #experience .exp-years span { display: block; font-size: 11px; font-weight: 600; color: var(--muted); letter-spacing: 0.2em; text-transform: uppercase; margin-top: 8px; -webkit-text-fill-color: var(--muted); }
+    #experience .exp-date { font-size: 13px; color: var(--muted); margin-bottom: 10px; font-weight: 400; }
+    #experience h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 12px; }
+    #experience p { color: #888; font-size: 0.9rem; font-weight: 300; line-height: 1.8; }
+
+    @media (max-width: 600px) {
+      #experience .exp-card { grid-template-columns: 1fr; gap: 20px; }
+    }
 
     /* WHAT I DO — card grid */
     #services .card-wrap {
@@ -138,13 +150,13 @@
       display: flex; flex-direction: column; align-items: center;
       text-align: center; padding: 120px 60px;
     }
-    #quote .big-quote { font-size: 3rem; color: var(--muted); line-height: 1; margin-bottom: 32px; font-family: Georgia, serif; }
+    #quote .big-quote { font-size: 3rem; color: #555; line-height: 1; margin-bottom: 32px; font-family: Georgia, serif; font-style: italic; }
     #quote blockquote {
-      font-size: clamp(1.2rem, 2.2vw, 1.7rem); font-weight: 600;
-      max-width: 700px; line-height: 1.5; color: #fff; margin-bottom: 24px;
+      font-size: clamp(1.2rem, 2.2vw, 1.7rem); font-weight: 500;
+      max-width: 700px; line-height: 1.5; color: #e0e0e0; margin-bottom: 24px;
       font-style: normal; letter-spacing: -0.01em;
     }
-    #quote cite { font-size: 12px; font-weight: 400; color: var(--muted); letter-spacing: 0.05em; font-style: normal; }
+    #quote cite { font-size: 13px; font-weight: 300; color: #888; letter-spacing: 0.05em; font-style: normal; }
 
     /* FOOTER */
     footer {
@@ -197,19 +209,25 @@
 
   <section id="experience">
     <p class="section-label">Experience</p>
-    <div class="exp-row reveal">
+    <div class="exp-card reveal">
       <div>
+        <div class="exp-years">3+<span>Years</span></div>
+      </div>
+      <div>
+        <div class="exp-date">2018 — 2021</div>
         <h3>Psychology Graduate & Early Career</h3>
         <p>Completed a degree in Psychology, building a strong foundation in human behavior, communication, and emotional intelligence. Worked as a Staff Finance, handling financial records, budgeting, and day-to-day administrative reporting. Also spent time in the oil industry, gaining exposure to how large-scale operations run on the ground.</p>
       </div>
-      <span class="date">2018 — 2021</span>
     </div>
-    <div class="exp-row reveal">
+    <div class="exp-card reveal">
       <div>
+        <div class="exp-years">4+<span>Years</span></div>
+      </div>
+      <div>
+        <div class="exp-date">2022 — Present</div>
         <h3>Customer Service & Support Professional</h3>
         <p>Dedicated career in customer service and support, working with international companies across diverse industries. Consistently delivering high-quality client experiences through empathy, efficiency, and clear communication.</p>
       </div>
-      <span class="date">2022 — Present</span>
     </div>
   </section>
 
